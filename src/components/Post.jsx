@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@mui/styles'
+import logo from '../assets/pdf.png'
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
 
 const useStyles = makeStyles({
@@ -19,7 +20,7 @@ const Post = () => {
     <div className={classes.postcontainer}>
         <Card>
             <CardActionArea>
-                <CardMedia className={classes.media} image='https://images.pexels.com/photos/11490758/pexels-photo-11490758.jpeg?cs=srgb&dl=pexels-maria-ovchinnikova-11490758.jpg&fm=jpg' title="My Post">
+                <CardMedia className={classes.media} image={logo} title="My Post">
                     {/* https://images.pexels.com/photos/11490758/pexels-photo-11490758.jpeg?cs=srgb&dl=pexels-maria-ovchinnikova-11490758.jpg&fm=jpg */}
 
                 </CardMedia>

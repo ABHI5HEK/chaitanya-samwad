@@ -13,6 +13,9 @@ import { DrawerContext } from './contexts/DrawerContext';
 import { useState,useContext } from 'react';
 import Add from './components/Add';
 import Login from './pages/Login';
+import Register from './pages/Register';
+import { LoginContext } from './contexts/LoginContext';
+import CreatePost from './pages/CreatePost';
 
 
 const useStyles = makeStyles({
@@ -24,12 +27,14 @@ const useStyles = makeStyles({
 })
 function App() {
   const [status,setStatus] = useState(false);
+  const [login,setLogin] = useState();
   const classes = useStyles();
   return (
     <div >
     
       <BrowserRouter>
       <DrawerContext.Provider value={{status,setStatus}}>
+        <LoginContext.Provider value ={{login,setLogin}}>
       <Navbar />
       
       <Grid container>
@@ -46,10 +51,12 @@ function App() {
         <Route path="/login" element={ <Login/>}></Route>
         <Route path="/advisory" element={ <AdvisoryComittee/>}></Route>
         <Route path="/notifications" element={ <Notifications/>}></Route>
+        <Route path="/register" element={ <Register/>}></Route>
+        <Route path="/submit" element={ <CreatePost/>}></Route>
           </Routes>
           
           </Grid>
-          
+          </LoginContext.Provider>
           </DrawerContext.Provider>
       </BrowserRouter>
      

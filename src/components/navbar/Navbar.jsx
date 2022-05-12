@@ -23,6 +23,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { DrawerContext } from '../../contexts/DrawerContext'
+import { LoginContext } from '../../contexts/LoginContext'
 
 
 
@@ -89,9 +90,14 @@ const Navbar = () => {
     const {status,setStatus} = useContext(DrawerContext);
     let navigate = useNavigate();
     const classes = useStyles();
+    const {login,setLogin} = useContext(LoginContext);
     const clickHandler = () => {
+       if(login){
+        navigate("/submit");
+       }else{
         navigate("/login");
-        console.log("click working")
+       }
+       // console.log("click working")
     }
     
 
